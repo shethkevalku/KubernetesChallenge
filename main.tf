@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
     bucket         = "personio-kubernetes-challenge-keval-tf-state-backend-ci-cd"
     key            = "tf-infra/terraform.tfstate"
-    region         = "eu-west-1"
+    region         = "us-east-2"
     dynamodb_table = "terraform-personio-tf-state-locking"
     encrypt        = true
   }
