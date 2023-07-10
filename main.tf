@@ -2,10 +2,10 @@ terraform {
   # Run init/plan/apply with "backend" commented-out (ueses local backend) to provision Resources (Bucket, Table)
   # Then uncomment "backend" and run init, apply after Resources have been created (uses AWS)
   backend "s3" {
-    bucket         = "personio-kubernetes-challenge-keval-tf-state-backend-ci-cd"
+    bucket         = "kubernetes-challenge-keval-tf-state-backend-ci-cd"
     key            = "tf-infra/terraform.tfstate"
     region         = "us-east-2"
-    dynamodb_table = "terraform-personio-tf-state-locking"
+    dynamodb_table = "terraform_challenge-tf-state-locking"
     encrypt        = true
   }
 
@@ -27,7 +27,7 @@ provider "aws" {
 module "tf-state" {
   source      = "./modules/tf-state"
   #Enter bucket name to store tf-state
-  bucket_name = "personio-kubernetes-challenge-keval-tf-state-backend-ci-cd"
+  bucket_name = "kubernetes-challenge-keval-tf-state-backend-ci-cd"
 }
 
 # module eks-infra {
