@@ -1,13 +1,13 @@
 terraform {
   # Run init/plan/apply with "backend" commented-out (ueses local backend) to provision Resources (Bucket, Table)
   # Then uncomment "backend" and run init, apply after Resources have been created (uses AWS)
-  # backend "s3" {
-  #   bucket         = "personio-kubernetes-challenge-keval-tf-state-backend-ci-cd"
-  #   key            = "tf-infra/terraform.tfstate"
-  #   region         = "eu-west-1"
-  #   dynamodb_table = "terraform-personio-tf-state-locking"
-  #   encrypt        = true
-  # }
+  backend "s3" {
+    bucket         = "personio-kubernetes-challenge-keval-tf-state-backend-ci-cd"
+    key            = "tf-infra/terraform.tfstate"
+    region         = "eu-west-1"
+    dynamodb_table = "terraform-personio-tf-state-locking"
+    encrypt        = true
+  }
 
   required_providers {
     aws = {
