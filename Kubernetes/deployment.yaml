@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-website
+  template:
+    metadata:
+      labels:
+        app: sample-website
+    spec:
+      containers:
+        - name: sample-website
+          image: 328296826261.dkr.ecr.eu-west-1.amazonaws.com/example-service-name:development
+          ports:
+            - containerPort: 8080
